@@ -5,7 +5,7 @@
 var field=[];
 
 /**
- * рамер ячейки в пикселях
+ * размер ячейки в пикселях
  * @type {number}
  */
 var cell=20;
@@ -79,7 +79,8 @@ function render()
 	 			case 0:
 	 			$ctx.fillStyle='#AA0000';
 	 			$ctx.fillRect(i*cell,j*cell,cell,cell);
-	 			
+	 			$ctx.strokeStyle="#ffffff";
+	 			$ctx.strokeRect(i*cell,j*cell,cell,cell);
 	 			break;
 	 		}
 	 	}
