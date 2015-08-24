@@ -32,7 +32,10 @@ var $canvas;
   */
 var	$ctx;
 
-
+var socket; 
+/**
+переменная сокета
+**/
 /**
  * || нужно больше инфы ||
  *
@@ -70,6 +73,7 @@ function createField()
  */
 function initialization()
 {
+	socket=io.connect(); //инициализация сокета
 	$canvas=$('canvas');
 	$ctx=canvas.getContext("2d");
 	createField();
@@ -77,11 +81,17 @@ function initialization()
 }
 
 
+function update()
+{
+	//socket.emit('send msg',"Hello");
+}
+
 /**
  * функция отрисовки
  */
 function render()
 {
+	update();
 	$ctx.clearRect(0,0,640,480);//очистка канваса
 	for(var i=0;i<width;i++)
  	{
