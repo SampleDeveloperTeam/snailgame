@@ -77,6 +77,9 @@ function initialization()
 }
 
 
+/**
+ * функция отрисовки
+ */
 function render()
 {
 	$ctx.clearRect(0,0,640,480);//очистка канваса
@@ -87,9 +90,9 @@ function render()
 	 		switch(field[i][j])
 	 		{
 	 			case 0:
-	 			$ctx.fillStyle='#AA0000';
+	 			$ctx.fillStyle='#ffebcd';
 	 			$ctx.fillRect(i*cell,j*cell,cell,cell);
-	 			$ctx.strokeStyle="#ffffff";
+	 			$ctx.strokeStyle="#111";
 	 			$ctx.strokeRect(i*cell,j*cell,cell,cell);
 	 			break;
 	 		}
@@ -98,6 +101,9 @@ function render()
 	requestAnimationFrame(render);// вызывает render() по циклу
 }
 
+/**
+ * вызов функции initialization, когда загрузится html окно
+ */
 $(document).ready(function(){
 	initialization();
 });
