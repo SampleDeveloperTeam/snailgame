@@ -49,9 +49,9 @@ function render()
 	 		switch(field[i][j])
 	 		{
 	 			case 0:
-	 			$ctx.fillStyle='#aa0000';
+	 			$ctx.fillStyle='#AA0000';
 	 			$ctx.fillRect(i*cell,j*cell,cell,cell);
-	 			break
+	 			break;
 	 		}
 	 	}
  	}
