@@ -10,7 +10,7 @@ body{
 
 #canvas{
     background-color: #ffffff;
-
+    border: 1px #111 solid;
     /*width: 640px;
     height: 480px;*/
 }
