@@ -51,6 +51,7 @@ function render()
 	 			case 0:
 	 			$ctx.fillStyle='#AA0000';
 	 			$ctx.fillRect(i*cell,j*cell,cell,cell);
+	 			var qq;
 	 			break;
 	 		}
 	 	}
