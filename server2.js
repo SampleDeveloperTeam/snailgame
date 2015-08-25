@@ -29,6 +29,19 @@ app.get('/',function(req,res) {
 
 io.sockets.on('connection',function(socket){
 
+	socket.on('newuser',function(data,callback){
+		
+		if(data!='' && checkNicks(data))
+		{
+			callback=true;
+			socket.nickname=data;
+			players.push(new player(socket.nickname));
+		}
+		else {
+			callback=false;
+		}
+		io.sockets.emit('usernames',nicknames);
+	});
 
 });
 
@@ -52,7 +65,25 @@ var rooms=[];
 var fields=[];
 var players=[];
 
+
+var mainfield=createField();
+
 setInterval(changefields,500);
+
+function checkNicks(data)
+{
+		for(var i=0;i<players.length;i++)
+		{
+			if(players[i].nick==data)
+			{
+				return false;
+			}
+
+		}
+		return true;
+}
+
+
 
 function changefields() 
 {
@@ -97,7 +128,10 @@ function player(nick)
 
 function Snail()
 {
-	this.bodySnails=[2];
+	this.bodySnails=[];
+	this.bodySnails.push(new vector2(6,6));
+	this.bodySnails.push(new vector2(5,6));
+	this.direction=3;
 }
 
 function vector2(x,y)

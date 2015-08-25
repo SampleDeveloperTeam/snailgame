@@ -32,10 +32,15 @@ var $canvas;
   */
 var	$ctx;
 
-var socket; 
+var socket=io.connect(); 
 /**
 переменная сокета
 **/
+var players=[];
+/**
+Переменная с игроками ,полученная от сервера
+**/
+
 /**
  * || нужно больше инфы ||
  *
@@ -73,14 +78,25 @@ function createField()
  */
 function initialization()
 {
-	socket=io.connect(); //инициализация сокета
+	//инициализация сокета
 	//$('#newuser').hide();
 	$canvas=$('#canvas');
 	$ctx=canvas.getContext("2d");
 	createField();
 
+
+
+
 	render();
 }
+
+
+
+
+	
+
+
+
 
 
 function update()
@@ -116,6 +132,29 @@ function render()
 /**
  * вызов функции initialization, когда загрузится html окно
  */
+ $("#newuser").submit(function(e){
+	e.preventDefault();
+
+	socket.emit('newuser',$("#input").val(), function(data){
+		if(data)
+		{
+			$('#newuser').hide();
+
+		}else{
+			$("#input").val("Uncorrect");
+		}
+
+	});
+	$("#input").val('');
+	});
+
+	socket.on('usernames',function(data){
+		players=data;
+		for(var i=0;i<players.length;i++)
+		{
+			$("#userlist").append(data.nick+",");
+		}
+	});
 $(document).ready(function(){
 	initialization();
 });
