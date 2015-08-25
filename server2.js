@@ -32,8 +32,71 @@ io.sockets.on('connection',function(socket){
 
 });
 
-setInterval(function(){},1000);
+/*
+логика игры
+
+*/
+/**
+ * количество ячеек по ширине
+ * @type {number}
+ */
+var	width=32;
+
+/**
+ * количество ячеек по высоте
+ * @type {number}
+ */
+var height=24;
+
+var rooms=[];
+var fields=[];
+var players=[];
+
+setInterval(changefields,500);
+
+function changefields() 
+{
+
+}
+
+
+function room(player)
+{
+	this.maxPlayers=2;
+	this.players=[];
+	this.players.push(player);
+	this.field;
+};
+room.prototype.createRoom = function() {
+	this.field=createField() ;
+};
+
+function createField()  
+{
+	var field=new Array(width);
+ 	for(var i=0;i<width;i++)
+ 	{
+ 		field[i]=new Array(height);
+ 	}
+ 	for(var i=0;i<width;i++)
+ 	{
+ 		for(var j=0;j<height;j++)
+	 	{
+	 		field[i][j]=0;
+	 	}
+ 	}
+ 	return field;
+
+}
+
+function player(nick)
+{
+	this.nick=nick;
+	this.snail=new Snail();
+}
+
 function Snail()
 {
 
 }
+
