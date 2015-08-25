@@ -77,6 +77,7 @@ function initialization()
 	$canvas=$('canvas');
 	$ctx=canvas.getContext("2d");
 	createField();
+
 	render();
 }
 

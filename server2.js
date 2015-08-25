@@ -2,11 +2,12 @@ var express=require('express');
 app=express();
 
 server=require('http').createServer(app);
-io=require('socket.io');
+io=require('socket.io').listen(server);
 
-io.listen(server);
 
-server.listen(8080,'192.168.1.3');
+
+
+server.listen(8080,'192.168.1.4');
 
 app.get('/scripts/main.js',function(req,res) {
 	res.sendfile(__dirname+'/scripts/main.js');
@@ -26,9 +27,12 @@ app.get('/',function(req,res) {
 	res.sendfile(__dirname+"/index.html");
 });
 
+io.sockets.on('connection',function(socket){
 
 
+});
 
+setInterval(function(){},1000);
 function Snail()
 {
 
