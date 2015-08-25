@@ -32,7 +32,7 @@ var $canvas;
   */
 var	$ctx;
 
-var socket; 
+//var socket;
 /**
 переменная сокета
 **/
@@ -49,11 +49,12 @@ var socket;
 function createField()  
 {
 	field=new Array(width);
- 	for(var i=0;i<width;i++)
+	var i;
+ 	for(i=0;i<width;i++)
  	{
  		field[i]=new Array(height);
  	}
- 	for(var i=0;i<width;i++)
+ 	for(i=0;i<width;i++)
  	{
  		for(var j=0;j<height;j++)
 	 	{
@@ -73,7 +74,7 @@ function createField()
  */
 function initialization()
 {
-	socket=io.connect(); //инициализация сокета
+	//socket=io.connect(); //инициализация сокета
 	//$('#newuser').hide();
 	$canvas=$('#canvas');
 	$ctx=canvas.getContext("2d");
@@ -102,11 +103,17 @@ function render()
 	 		switch(field[i][j])
 	 		{
 	 			case 0:
-	 			$ctx.fillStyle='#ffebcd';
-	 			$ctx.fillRect(i*cell,j*cell,cell,cell);
-	 			$ctx.strokeStyle="#111";
-	 			$ctx.strokeRect(i*cell,j*cell,cell,cell);
-	 			break;
+					$ctx.fillStyle='#ffebcd';
+					$ctx.fillRect(i*cell,j*cell,cell,cell);
+					$ctx.strokeStyle="#111";
+					$ctx.strokeRect(i*cell,j*cell,cell,cell);
+					break;
+				case 1:
+					$ctx.fillStyle='#ff0000';
+					$ctx.fillRect(i*cell,j*cell,cell,cell);
+					$ctx.strokeStyle="#111";
+					$ctx.strokeRect(i*cell,j*cell,cell,cell);
+					break;
 	 		}
 	 	}
  	}
@@ -119,3 +126,20 @@ function render()
 $(document).ready(function(){
 	initialization();
 });
+
+function getInt(number) {
+	return Math.floor(Math.random()*number);
+}
+
+function start(){
+	alert("Game started!");
+
+	setInterval(function(){
+
+		var randx = getInt(width);
+		var randy = getInt(height);
+
+		field[randx][randy] = 1;
+		render();
+	},1000);
+}

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Классная змейка</title>
     <link rel="stylesheet" href="css/snail.css">
-    <script src="/socket.io/socket.io.js"></script>
+    <!--<script src="/socket.io/socket.io.js"></script>-->
 	<script src="scripts/jquery.js"></script>
     <script src="scripts/jquery.min.js"></script>
     <script src="scripts/main.js"></script>
@@ -16,15 +16,21 @@
 
 </header>
 
-<div class="users">
+<div    id="sadface"
+        onclick="start()"
+
+        onmousedown="return false;">
+    <h2>Start</h2>
+</div>
+
+<!--<div class="users">
 	<form id="newuser">
 		<p>Enter your nickname</p>
-		<input id="input" size="45"></input>
-		<input type="submit" value="Play"></input>
+		<input id="input" size="45">
+		<input type="submit" value="Play">
 	</form>
 	<p id="userlist">Users: </br></p>
-</div>
-<br>
+</div>-->
 <div class="main">
     <canvas id="canvas" width='640' height='480'>У вас не работает канвас</canvas>
 </div>

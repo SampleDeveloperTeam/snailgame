@@ -1,3 +1,14 @@
+* {
+    -webkit-user-select: none;
+    -ms-user-select:none;
+    user-select:none;
+}
+
+*:active,
+*:hover {
+
+}
+
 body{
     background-color: whitesmoke;
     display: flex;
@@ -24,7 +35,23 @@ body{
 
     display: flex;
 }
-p{
-    font-size: 21px;
-    text-align: center;
+
+h2 {
+    padding: 0 10px;
+}
+#sadface {
+    border: 3px sandybrown solid;
+    border-radius: 10px;
+    background-color: rgba(178, 34, 34, 0.5);
+    margin: 10px 0;
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s;-moz-user-select: none;
+
+
+}
+#sadface:hover {
+    background-color: rgba(178, 34, 34, 1);
+    cursor: pointer;
 }
