@@ -74,7 +74,8 @@ function createField()
 function initialization()
 {
 	socket=io.connect(); //инициализация сокета
-	$canvas=$('canvas');
+	//$('#newuser').hide();
+	$canvas=$('#canvas');
 	$ctx=canvas.getContext("2d");
 	createField();
 

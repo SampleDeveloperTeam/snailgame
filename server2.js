@@ -7,7 +7,7 @@ io=require('socket.io').listen(server);
 
 
 
-server.listen(8080,'192.168.1.4');
+server.listen(8080,'192.168.1.3');
 
 app.get('/scripts/main.js',function(req,res) {
 	res.sendfile(__dirname+'/scripts/main.js');
@@ -92,11 +92,17 @@ function createField()
 function player(nick)
 {
 	this.nick=nick;
-	this.snail=new Snail();
+	//this.snail=new Snail();
 }
 
 function Snail()
 {
+	this.bodySnails=[2];
+}
 
+function vector2(x,y)
+{
+	this.x=x;
+	this.y=y;
 }
 
