@@ -19,8 +19,8 @@ app.get('/scripts/jquery.min.js',function(req,res) {
 	res.sendfile(__dirname+'/scripts/jquery.min.js');
 });
 
-app.get('/css/snail.css',function(req,res) {
-	res.sendfile(__dirname+'/css/snail.css');
+app.get('/css/snake.css',function(req,res) {
+	res.sendfile(__dirname+'/css/snake.css');
 });
 
 app.get('/',function(req,res) {

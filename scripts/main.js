@@ -61,9 +61,16 @@ function createField()
 	 		field[i][j]=0;
 	 	}
  	}
-
 }
-
+function reFillField(){
+	for(var i=0;i<width;i++)
+	{
+		for(var j=0;j<height;j++)
+		{
+			field[i][j]=0;
+		}
+	}
+}
 /**
  * функция инициализации
  *
@@ -131,15 +138,17 @@ function getInt(number) {
 	return Math.floor(Math.random()*number);
 }
 
-function start(){
-	alert("Game started!");
-
+function start() {
+	var snake = new Snake();
+	field[snake.getPosition().getX()][snake.getPosition().getY()] = 1;
+	render();
 	setInterval(function(){
-
-		var randx = getInt(width);
-		var randy = getInt(height);
-
-		field[randx][randy] = 1;
+		snake.move();
+		field[snake.getPosition().getX()][snake.getPosition().getY()] = 1;
+		//var randx = getInt(width);
+		//var randy = getInt(height);
+		//field[randx][randy] = 1;
 		render();
 	},1000);
 }
+
