@@ -142,20 +142,20 @@ function getInt(number) {
 
 function start() {
 	var snake = new Snake();
-	field[snake.getPosition().getX()][snake.getPosition().getY()] = 1;
+	field[snake.getHeadPosition().getX()][snake.getHeadPosition().getY()] = 1;
 	$(document).keydown(function(event) {
 		switch (event.which){
 			case 37:
-				snake.direction = 3;
+				snake.changeDirection(DirectionEnum.LEFT);
 				break;
 			case 38:
-				snake.direction = 0;
+				snake.changeDirection(DirectionEnum.UP);
 				break;
 			case 39:
-				snake.direction = 1;
+				snake.changeDirection(DirectionEnum.RIGHT);
 				break;
 			case 40:
-				snake.direction = 2;
+				snake.changeDirection(DirectionEnum.DOWN);
 				break;
 		}
 	});
@@ -163,7 +163,7 @@ function start() {
 		snake.move();
 
 		reFillField();
-		field[snake.getPosition().getX()][snake.getPosition().getY()] = 1;
+		field[snake.getHeadPosition().getX()][snake.getHeadPosition().getY()] = 1;
 		//var randx = getInt(width);
 		//var randy = getInt(height);
 		//field[randx][randy] = 1;
