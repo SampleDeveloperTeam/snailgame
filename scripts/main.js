@@ -134,6 +134,8 @@ $(document).ready(function(){
 	initialization();
 });
 
+
+
 function getInt(number) {
 	return Math.floor(Math.random()*number);
 }
@@ -141,14 +143,31 @@ function getInt(number) {
 function start() {
 	var snake = new Snake();
 	field[snake.getPosition().getX()][snake.getPosition().getY()] = 1;
-	render();
+	$(document).keydown(function(event) {
+		switch (event.which){
+			case 37:
+				snake.direction = 3;
+				break;
+			case 38:
+				snake.direction = 0;
+				break;
+			case 39:
+				snake.direction = 1;
+				break;
+			case 40:
+				snake.direction = 2;
+				break;
+		}
+	});
 	setInterval(function(){
 		snake.move();
+
+		reFillField();
 		field[snake.getPosition().getX()][snake.getPosition().getY()] = 1;
 		//var randx = getInt(width);
 		//var randy = getInt(height);
 		//field[randx][randy] = 1;
-		render();
+
 	},1000);
 }
 

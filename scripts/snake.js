@@ -22,8 +22,23 @@ function Snake() {
     };
     this.move = function(){
         switch (this.direction){
+            case 0:
+                this.head.coordinates.y = (this.head.coordinates.y - 1);
+                if(this.head.coordinates.y == -1) {
+                    this.head.coordinates.y = this.head.coordinates.y + height;
+                }
+                break;
             case 1:
                 this.head.coordinates.x = (this.head.coordinates.x + 1) % 32;
+                break;
+            case 2:
+                this.head.coordinates.y = (this.head.coordinates.y + 1) % 24;
+                break;
+            case 3:
+                this.head.coordinates.x = (this.head.coordinates.x - 1) % 32;
+                if(this.head.coordinates.x == -1){
+                    this.head.coordinates.x = this.head.coordinates.x + 32;
+                }
                 break;
         }
     }
