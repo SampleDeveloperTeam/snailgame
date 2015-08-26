@@ -141,6 +141,7 @@ function getInt(number) {
 }
 
 function start() {
+	$("#sadface").hide();
 	var snake = new Snake();
 	field[snake.getHeadPosition().getX()][snake.getHeadPosition().getY()] = 1;
 	$(document).keydown(function(event) {
