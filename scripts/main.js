@@ -1,10 +1,8 @@
 /**
- * информация о игровом поле
- * @type {Array}
+ *
  */
-var field=[];
-
 var map_grid;
+
 /**
  * размер ячейки в пикселях
  * @type {number}
@@ -28,50 +26,18 @@ var height=24;
  * DOM доступ к канвас
  */
 var $canvas;
+
 /**
  * Контекст канваса
   */
 var	$ctx;
 
-//var socket;
 /**
-переменная сокета
-**/
-/**
- * || нужно больше инфы ||
- *
- * Создание двумерного массива с размерами наших ячеек
- * первый индекс - широта в ячейках
- * второй индекс - высота в ячейках
- *
- * После этого происходит заполнение инфы о игровом поле, так как поле пустое, мы его заполняем нулями
- * 0-ничего(квадратик с background)..
+ * переменная сокета
  */
-function createField()  
-{
-	field=new Array(width);
-	var i;
- 	for(i=0;i<width;i++)
- 	{
- 		field[i]=new Array(height);
- 	}
- 	for(i=0;i<width;i++)
- 	{
- 		for(var j=0;j<height;j++)
-	 	{
-	 		field[i][j]=0;
-	 	}
- 	}
-}
-function reFillField(){
-	for(var i=0;i<width;i++)
-	{
-		for(var j=0;j<height;j++)
-		{
-			field[i][j]=0;
-		}
-	}
-}
+//var socket;
+
+
 /**
  * функция инициализации
  *
@@ -88,13 +54,10 @@ function initialization()
 	$ctx=canvas.getContext("2d");
 
     map_grid = new GameMap(width,height);
-    map_grid.init()
-    //alert(map_grid.show(3,4));
-	createField();
+    map_grid.init();
 
 	render();
 }
-
 
 function update()
 {
@@ -112,7 +75,8 @@ function render()
  	{
  		for(var j=0;j<height;j++)
 	 	{
-	 		switch(field[i][j])
+            var a = map_grid.show(i,j);
+	 		switch(a)
 	 		{
 	 			case GRID_CELL.EMPTY:
 					$ctx.fillStyle='#ffebcd';
@@ -139,11 +103,13 @@ $(document).ready(function(){
 	initialization();
 });
 
-
+/**
+ *
+ */
 function start() {
 	$("#sadface").hide();
 	var snake = new Snake();
-	field[snake.getHeadPosition().getX()][snake.getHeadPosition().getY()] = 1;
+	map_grid.getSnakeCoords(snake);
 	$(document).keydown(function(event) {
 		switch (event.which){
 			case 37:
@@ -162,9 +128,8 @@ function start() {
 	});
 	setInterval(function(){
 		snake.move();
-
-		reFillField();
-		field[snake.getHeadPosition().getX()][snake.getHeadPosition().getY()] = 1;
+        map_grid.refillField();
+        map_grid.getSnakeCoords(snake);
 		//var randx = getInt(width);
 		//var randy = getInt(height);
 		//field[randx][randy] = 1;
