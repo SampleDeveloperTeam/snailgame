@@ -24,11 +24,13 @@ function Cell(x, y){
 }
 function Snake() {
     this.direction = DirectionEnum.RIGHT;
+    this.newdirection = DirectionEnum.RIGHT;
     this.head = new Cell(3,5);
     this.getHeadPosition = function(){
         return this.head;
     };
     this.move = function(){
+        this.changeDirection(this.newdirection);
         switch (this.direction){
             case DirectionEnum.UP:
                 this.head.coordinates.y = (this.head.coordinates.y - 1);
@@ -45,7 +47,7 @@ function Snake() {
             case DirectionEnum.LEFT:
                 this.head.coordinates.x = this.head.coordinates.x - 1;
                 if(this.head.coordinates.x == -1){
-                    this.head.coordinates.x = this.head.coordinates.x + widthd;
+                    this.head.coordinates.x = this.head.coordinates.x + width;
                 }
                 break;
         }
@@ -60,5 +62,8 @@ function Snake() {
         } else if(direction == DirectionEnum.LEFT && this.direction != DirectionEnum.RIGHT) {
             this.direction = DirectionEnum.LEFT;
         }
+    }
+    this.setNewDirection = function(newDirection) {
+        this.newdirection = newDirection;
     }
 }

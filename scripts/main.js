@@ -4,6 +4,7 @@
  */
 var field=[];
 
+var map_grid;
 /**
  * размер ячейки в пикселях
  * @type {number}
@@ -85,6 +86,10 @@ function initialization()
 	//$('#newuser').hide();
 	$canvas=$('#canvas');
 	$ctx=canvas.getContext("2d");
+
+    map_grid = new GameMap(width,height);
+    map_grid.init()
+    //alert(map_grid.show(3,4));
 	createField();
 
 	render();
@@ -109,13 +114,13 @@ function render()
 	 	{
 	 		switch(field[i][j])
 	 		{
-	 			case 0:
+	 			case GRID_CELL.EMPTY:
 					$ctx.fillStyle='#ffebcd';
 					$ctx.fillRect(i*cell,j*cell,cell,cell);
 					$ctx.strokeStyle="#111";
 					$ctx.strokeRect(i*cell,j*cell,cell,cell);
 					break;
-				case 1:
+				case GRID_CELL.HEAD:
 					$ctx.fillStyle='#ff0000';
 					$ctx.fillRect(i*cell,j*cell,cell,cell);
 					$ctx.strokeStyle="#111";
@@ -135,11 +140,6 @@ $(document).ready(function(){
 });
 
 
-
-function getInt(number) {
-	return Math.floor(Math.random()*number);
-}
-
 function start() {
 	$("#sadface").hide();
 	var snake = new Snake();
@@ -147,16 +147,16 @@ function start() {
 	$(document).keydown(function(event) {
 		switch (event.which){
 			case 37:
-				snake.changeDirection(DirectionEnum.LEFT);
+				snake.setNewDirection(DirectionEnum.LEFT);
 				break;
 			case 38:
-				snake.changeDirection(DirectionEnum.UP);
+				snake.setNewDirection(DirectionEnum.UP);
 				break;
 			case 39:
-				snake.changeDirection(DirectionEnum.RIGHT);
+				snake.setNewDirection(DirectionEnum.RIGHT);
 				break;
 			case 40:
-				snake.changeDirection(DirectionEnum.DOWN);
+				snake.setNewDirection(DirectionEnum.DOWN);
 				break;
 		}
 	});
