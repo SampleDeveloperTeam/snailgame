@@ -33,14 +33,14 @@ io.sockets.on('connection',function(socket){
 		
 		if(data!='' && checkNicks(data))
 		{
-			callback=true;
+			callback(true);
 			socket.nickname=data;
 			players.push(new player(socket.nickname));
 		}
 		else {
-			callback=false;
+			callback(false);
 		}
-		io.sockets.emit('usernames',nicknames);
+		io.sockets.emit('usernames',players);
 	});
 
 });

@@ -76,6 +76,15 @@ function createField()
  * инициализация информации об игровом поле
  * вызов функции, для отрисовки нашего холста(canvas'а)
  */
+
+$(document).ready(function(){
+	
+	connection();
+
+	initialization();
+
+});
+
 function initialization()
 {
 	//инициализация сокета
@@ -87,7 +96,7 @@ function initialization()
 
 
 
-	render();
+	setInterval(render,1000/60);
 }
 
 
@@ -126,35 +135,43 @@ function render()
 	 		}
 	 	}
  	}
-	requestAnimationFrame(render);// вызывает render() по циклу
+	//requestAnimationFrame(render);// вызывает render() по циклу
+	console.log("hh");
 }
 
 /**
  * вызов функции initialization, когда загрузится html окно
  */
- $("#newuser").submit(function(e){
+ function connection()
+ {
+ 	$("#newuser").submit(function(e){
 	e.preventDefault();
 
 	socket.emit('newuser',$("#input").val(), function(data){
 		if(data)
 		{
-			$('#newuser').hide();
+			$('#users').hide();
+			$("#error").hide();
 
 		}else{
-			$("#input").val("Uncorrect");
+
+			$("#error").html("Uncorrect nickname!");
+			
 		}
 
 	});
 	$("#input").val('');
+
 	});
 
 	socket.on('usernames',function(data){
-		players=data;
-		for(var i=0;i<players.length;i++)
+		var html='';
+		for(var i=0;i<data.length;i++)
 		{
-			$("#userlist").append(data.nick+",");
+			html+=i+1+":"+data[i].nick+' ';
+			
 		}
+		$("#userlist").html(html);
 	});
-$(document).ready(function(){
-	initialization();
-});
+ }
+ 
