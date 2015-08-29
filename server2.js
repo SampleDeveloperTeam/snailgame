@@ -7,7 +7,12 @@ io=require('socket.io').listen(server);
 
 
 
-server.listen(8080,'192.168.1.3');
+server.listen(8080,'192.168.1.2');
+
+
+app.get('/scripts/snale.js',function(req,res) {
+	res.sendfile(__dirname+'/scripts/main.js');
+});
 
 app.get('/scripts/main.js',function(req,res) {
 	res.sendfile(__dirname+'/scripts/main.js');
