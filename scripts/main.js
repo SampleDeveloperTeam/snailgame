@@ -37,6 +37,10 @@ var socket=io.connect();
 переменная сокета
 **/
 var players=[];
+var mynick;
+var snail;
+
+var startgame=false;
 /**
 Переменная с игроками ,полученная от сервера
 **/
@@ -66,6 +70,32 @@ function createField()
 	 	}
  	}
 
+}
+function reFillField(snake)
+{
+	for(var i=0;i<width;i++)
+ 	{
+ 		for(var j=0;j<height;j++)
+	 	{
+	 		field[i][j]=0;
+	 	}
+ 	}
+ 	for(var j=0;j<snake.parts.length;j++)
+	{
+		if(j==0)
+		{
+			if(field[snake.parts[j].x,snake.parts[j].y] ==0)
+			{
+				field[snake.parts[j].x,snake.parts[j].y]=2;
+			}
+			else 
+			{
+				startgame=false;
+			}
+		}
+		field[snake.parts[j].x,snake.parts[j].y]=1;
+	 	
+	}
 }
 
 /**
@@ -110,7 +140,12 @@ function initialization()
 
 function update()
 {
-	//socket.emit('send msg',"Hello");
+	if(startgame)
+	{
+		snail.update();
+		reFillField(snail);
+	}
+	
 }
 
 /**
@@ -132,11 +167,25 @@ function render()
 	 			$ctx.strokeStyle="#111";
 	 			$ctx.strokeRect(i*cell,j*cell,cell,cell);
 	 			break;
+
+	 			case 1:
+	 			$ctx.fillStyle='#ff0000';
+	 			$ctx.fillRect(i*cell,j*cell,cell,cell);
+	 			$ctx.strokeStyle="#111";
+	 			$ctx.strokeRect(i*cell,j*cell,cell,cell);
+	 			break;
+
+	 			case 2:
+	 			$ctx.fillStyle='#00ff00';
+	 			$ctx.fillRect(i*cell,j*cell,cell,cell);
+	 			$ctx.strokeStyle="#111";
+	 			$ctx.strokeRect(i*cell,j*cell,cell,cell);
+	 			break;
 	 		}
 	 	}
  	}
 	//requestAnimationFrame(render);// вызывает render() по циклу
-	console.log("hh");
+	
 }
 
 /**
@@ -146,12 +195,14 @@ function render()
  {
  	$("#newuser").submit(function(e){
 	e.preventDefault();
-
+	mynick=$("input").val();
 	socket.emit('newuser',$("#input").val(), function(data){
 		if(data)
 		{
 			$('#users').hide();
 			$("#error").hide();
+			snail=new Snake();
+			startgame=true;
 
 		}else{
 
@@ -174,4 +225,7 @@ function render()
 		$("#userlist").html(html);
 	});
  }
+
+
+
  
