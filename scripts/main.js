@@ -1,5 +1,5 @@
 /**
- *
+ * переменная, которая хранит в себе сетку игры
  */
 var map_grid;
 
@@ -109,7 +109,9 @@ $(document).ready(function(){
 function start() {
 	$("#sadface").hide();
 	var snake = new Snake();
+    snake.init(3,5);
 	map_grid.getSnakeCoords(snake);
+
 	$(document).keydown(function(event) {
 		switch (event.which){
 			case 37:
@@ -126,6 +128,7 @@ function start() {
 				break;
 		}
 	});
+
 	setInterval(function(){
 		snake.move();
         map_grid.refillField();
