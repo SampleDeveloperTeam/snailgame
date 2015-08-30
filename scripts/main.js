@@ -90,6 +90,12 @@ function render()
 					$ctx.strokeStyle="#111";
 					$ctx.strokeRect(i*cell,j*cell,cell,cell);
 					break;
+				case GRID_CELL.BODY:
+					$ctx.fillStyle='#ff9999';
+					$ctx.fillRect(i*cell,j*cell,cell,cell);
+					$ctx.strokeStyle="#111";
+					$ctx.strokeRect(i*cell,j*cell,cell,cell);
+					break;
 	 		}
 	 	}
  	}
@@ -109,8 +115,8 @@ $(document).ready(function(){
 function start() {
 	$("#sadface").hide();
 	var snake = new Snake();
-    snake.init(3,5);
-	map_grid.getSnakeCoords(snake);
+    snake.init();
+	map_grid.setSnake(snake);
 
 	$(document).keydown(function(event) {
 		switch (event.which){
@@ -126,13 +132,17 @@ function start() {
 			case 40:
 				snake.setNewDirection(DirectionEnum.DOWN);
 				break;
+            default:
+                snake.addNewCell();
+                break;
 		}
 	});
 
 	setInterval(function(){
-		snake.move();
+        snake.move();
+        map_grid.moveSnake();
         map_grid.refillField();
-        map_grid.getSnakeCoords(snake);
+        map_grid.getSnakePosition();
 		//var randx = getInt(width);
 		//var randy = getInt(height);
 		//field[randx][randy] = 1;

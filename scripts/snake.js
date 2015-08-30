@@ -8,106 +8,61 @@ DirectionEnum = {
     LEFT: 3
 };
 
-
-function CellCoords(x, y){
-    this.x = x;
-    this.y = y;
-}
 function Cell(){
-    this.coordinates = new CellCoords(0,0);
-    this.nextCell = undefined;
+    //this.coordinates = new CellCoords(0,0);
     //this.prevCell = undefined;
-
-    this.getX = function() {
-        return this.coordinates.x;
-    };
-    this.getY = function() {
-        return this.coordinates.y;
-    };
-    this.setCoordinates = function(x, y) {
-        this.coordinates.x = x;
-        this.coordinates.y = y;
-    };
+    this.nextItem = undefined;
 }
+
 function Snake() {
     this.direction = DirectionEnum.RIGHT;
     this.newdirection = DirectionEnum.RIGHT;
-    this.head = new Cell();
+    this.head = new Array();
 
-    this.init = function(x, y) {
-        this.head.setCoordinates(x, y);
-        var first = this.head;
-        for(var i = 0; i < 4; i++) {
-            first.nextCell = new Cell();
-            first.nextCell.setCoordinates(3,4 - i);
-
-            first.nextCell = first.nextCell.nextCell;
+    this.init = function() {
+        this.head.push(new Cell());
+        //this.head.setCoordinates(x, y);
+        //var first = this.head[0];
+        for(var i = 0; i < 3; i++) {
+            this.head[i].nextItem = DirectionEnum.LEFT;
+            this.head.push(new Cell());
         }
     };
 
-    this.getHeadPosition = function(){
+    this.getHead = function(){
         return this.head;
     };
 
-    this.getSnakePosition = function() {
-        var fcell = this.head;
-        var i = 1;
-        while(fcell.nextCell != undefined) {
-            i++;
+    /*this.getSnakePosition = function() {
+    };*/
+
+    this.inversePosition = function(direction) {
+        switch(direction){
+            case DirectionEnum.RIGHT:
+                return DirectionEnum.LEFT;
+            case DirectionEnum.UP:
+                return DirectionEnum.DOWN;
+            case DirectionEnum.DOWN:
+                return DirectionEnum.UP;
+            case DirectionEnum.LEFT:
+                return DirectionEnum.RIGHT;
         }
+    };
+    this.addNewCell = function() {
+        this.head[this.head.length - 1].nextItem =  this.head[this.head.length-2].nextItem;
+        this.head.push(new Cell());
     };
 
     this.move = function(){
         this.changeDirection(this.newdirection);
-        var coords = this.head.coordinates;
-        switch (this.direction){
-            case DirectionEnum.UP:
-                this.head.coordinates.y = (this.head.coordinates.y - 1);
-                if(this.head.coordinates.y == -1) {
-                    this.head.coordinates.y = this.head.coordinates.y + height;
-                }
-
-                var nextcell = this.head.nextCell;
-                while(nextcell!=undefined){
-                    var nextcellcoords = nextcell.coordinates;
-                    nextcell.coordinates = coords;
-                    coords = nextcellcoords;
-                    nextcell = nextcell.nextCell;
-                }
-                break;
-            case DirectionEnum.RIGHT:
-                this.head.coordinates.x = (this.head.coordinates.x + 1) % width;
-                var nextcell = this.head.nextCell;
-                while(nextcell!=undefined){
-                    var nextcellcoords = nextcell.coordinates;
-                    nextcell.coordinates = coords;
-                    coords = nextcellcoords;
-                    nextcell = nextcell.nextCell;
-                }
-                break;
-            case DirectionEnum.DOWN:
-                this.head.coordinates.y = (this.head.coordinates.y + 1) % height;
-                var nextcell = this.head.nextCell;
-                while(nextcell!=undefined){
-                    var nextcellcoords = nextcell.coordinates;
-                    nextcell.coordinates = coords;
-                    coords = nextcellcoords;
-                    nextcell = nextcell.nextCell;
-                }
-                break;
-            case DirectionEnum.LEFT:
-                this.head.coordinates.x = this.head.coordinates.x - 1;
-                if(this.head.coordinates.x == -1){
-                    this.head.coordinates.x = this.head.coordinates.x + width;
-                }
-                var nextcell = this.head.nextCell;
-                while(nextcell!=undefined){
-                    var nextcellcoords = nextcell.coordinates;
-                    nextcell.coordinates = coords;
-                    coords = nextcellcoords;
-                    nextcell = nextcell.nextCell;
-                }
-                break;
+        //var coords = this.head.coordinates;
+        var next = this.inversePosition(this.direction);
+        var temp = this.head[0].nextItem;
+        this.head[0].nextItem = next;
+        for(var i = 1; i < this.head.length-1; i++){
+            next = temp;
+            temp = this.head[i].nextItem;
+            this.head[i].nextItem = next;
         }
     };
 
