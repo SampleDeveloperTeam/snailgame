@@ -73,7 +73,7 @@ var players=[];
 
 var mainfield=createField();
 
-setInterval(changefields,500);
+//setInterval(changefields,500);
 
 function checkNicks(data)
 {
@@ -90,22 +90,8 @@ function checkNicks(data)
 
 
 
-function changefields() 
-{
-
-}
 
 
-function room(player)
-{
-	this.maxPlayers=2;
-	this.players=[];
-	this.players.push(player);
-	this.field;
-};
-room.prototype.createRoom = function() {
-	this.field=createField() ;
-};
 
 function createField()  
 {
@@ -124,6 +110,17 @@ function createField()
  	return field;
 
 }
+function reFillField()
+{
+	
+	for(var i=0;i<width;i++)
+ 	{
+ 		for(var j=0;j<height;j++)
+	 	{
+	 		field[i][j]=0;
+	 	}
+ 	}
+}
 
 function player(nick)
 {
@@ -131,13 +128,52 @@ function player(nick)
 	//this.snail=new Snail();
 }
 
-function Snail()
-{
-	this.bodySnails=[];
-	this.bodySnails.push(new vector2(6,6));
-	this.bodySnails.push(new vector2(5,6));
-	this.direction=3;
+
+
+DirectionEnum={
+	UP:0,
+	LEFT:1,
+	DOWN:2,
+	RIGHT:3
 }
+
+function Snake()
+{
+	this.bodysnake=new Array();
+
+	this.bodysnake.push(new vector2(10,5));
+	this.bodysnake.push(new vector2(9,5));
+	this.bodysnake.push(new vector2(8,5));
+	this.lastpos= undefined;
+	this.direction=DirectionEnum.RIGHT;
+}
+Snake.prototype.move = function(direction) {
+	switch(direction)
+	{
+		case DirectionEnum.UP:
+			this.bodysnake[0].y--;
+		break;
+
+		case DirectionEnum.LEFT:
+			this.bodysnake[0].x--;
+		break;
+
+		case DirectionEnum.DOWN:
+			this.bodysnake[0].y++;
+		break;
+
+		case DirectionEnum.RIGHT:
+			this.bodysnake[0].x++;
+		break;
+	}
+
+	this.lastpos=this.bodysnake[this.bodysnake.length-1];
+	for(var i=this.bodysnake.length-1;i>0;i--)
+	{
+		this.bodysnake[i]=this.bodysnake[i-1];
+	}
+};
+
 
 function vector2(x,y)
 {

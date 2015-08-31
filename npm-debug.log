@@ -1,0 +1,469 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/nodejs', '/usr/bin/npm', 'install', 'includejs', '-g' ]
+2 info using npm@1.3.10
+3 info using node@v0.10.25
+4 verbose cache add [ 'includejs', null ]
+5 verbose cache add name=undefined spec="includejs" args=["includejs",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: 'includejs',
+6 verbose parsed url   path: 'includejs',
+6 verbose parsed url   href: 'includejs' }
+7 silly lockFile 5787ec0f-includejs includejs
+8 verbose lock includejs /home/chester/.npm/5787ec0f-includejs.lock
+9 silly lockFile 5787ec0f-includejs includejs
+10 silly lockFile 5787ec0f-includejs includejs
+11 verbose addNamed [ 'includejs', '' ]
+12 verbose addNamed [ null, '*' ]
+13 silly lockFile ef09f83c-includejs includejs@
+14 verbose lock includejs@ /home/chester/.npm/ef09f83c-includejs.lock
+15 silly addNameRange { name: 'includejs', range: '*', hasData: false }
+16 verbose url raw includejs
+17 verbose url resolving [ 'https://registry.npmjs.org/', './includejs' ]
+18 verbose url resolved https://registry.npmjs.org/includejs
+19 info trying registry request attempt 1 at 22:00:05
+20 http GET https://registry.npmjs.org/includejs
+21 http 200 https://registry.npmjs.org/includejs
+22 silly registry.get cb [ 200,
+22 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+22 silly registry.get     etag: '"9CP4QC4517KP8AC4BLI69SRO5"',
+22 silly registry.get     'content-type': 'application/json',
+22 silly registry.get     'cache-control': 'max-age=60',
+22 silly registry.get     'content-length': '63539',
+22 silly registry.get     'accept-ranges': 'bytes',
+22 silly registry.get     date: 'Mon, 31 Aug 2015 19:00:06 GMT',
+22 silly registry.get     via: '1.1 varnish',
+22 silly registry.get     age: '0',
+22 silly registry.get     connection: 'keep-alive',
+22 silly registry.get     'x-served-by': 'cache-fra1220-FRA',
+22 silly registry.get     'x-cache': 'MISS',
+22 silly registry.get     'x-cache-hits': '0',
+22 silly registry.get     'x-timer': 'S1441047606.633314,VS0,VE318',
+22 silly registry.get     vary: 'Accept' } ]
+23 silly addNameRange number 2 { name: 'includejs', range: '*', hasData: true }
+24 silly addNameRange versions [ 'includejs',
+24 silly addNameRange   [ '0.3.3',
+24 silly addNameRange     '0.3.4',
+24 silly addNameRange     '0.3.5',
+24 silly addNameRange     '0.3.6',
+24 silly addNameRange     '0.3.7',
+24 silly addNameRange     '0.3.8',
+24 silly addNameRange     '0.4.2',
+24 silly addNameRange     '0.4.4',
+24 silly addNameRange     '0.4.5',
+24 silly addNameRange     '0.4.6',
+24 silly addNameRange     '0.4.7',
+24 silly addNameRange     '0.4.8',
+24 silly addNameRange     '0.4.9',
+24 silly addNameRange     '0.5.0',
+24 silly addNameRange     '0.5.1',
+24 silly addNameRange     '0.5.2',
+24 silly addNameRange     '0.5.3',
+24 silly addNameRange     '0.5.4',
+24 silly addNameRange     '0.5.5',
+24 silly addNameRange     '0.5.6',
+24 silly addNameRange     '0.5.7',
+24 silly addNameRange     '0.5.8',
+24 silly addNameRange     '0.5.9',
+24 silly addNameRange     '0.6.0',
+24 silly addNameRange     '0.6.1',
+24 silly addNameRange     '0.6.2',
+24 silly addNameRange     '0.6.3',
+24 silly addNameRange     '0.6.4',
+24 silly addNameRange     '0.6.6',
+24 silly addNameRange     '0.6.7',
+24 silly addNameRange     '0.6.8',
+24 silly addNameRange     '0.6.81',
+24 silly addNameRange     '0.6.9',
+24 silly addNameRange     '0.7.0',
+24 silly addNameRange     '0.7.1',
+24 silly addNameRange     '0.7.11',
+24 silly addNameRange     '0.7.12',
+24 silly addNameRange     '0.7.15',
+24 silly addNameRange     '0.7.2',
+24 silly addNameRange     '0.7.21',
+24 silly addNameRange     '0.8.0',
+24 silly addNameRange     '0.8.1',
+24 silly addNameRange     '0.9.1',
+24 silly addNameRange     '0.9.2',
+24 silly addNameRange     '0.9.21',
+24 silly addNameRange     '0.9.22',
+24 silly addNameRange     '0.9.23',
+24 silly addNameRange     '0.9.24',
+24 silly addNameRange     '0.9.25',
+24 silly addNameRange     '0.9.26',
+24 silly addNameRange     '0.9.27',
+24 silly addNameRange     '0.9.28',
+24 silly addNameRange     '0.9.29',
+24 silly addNameRange     '0.9.30',
+24 silly addNameRange     '0.9.31',
+24 silly addNameRange     '0.9.5',
+24 silly addNameRange     '0.9.6',
+24 silly addNameRange     '0.9.9',
+24 silly addNameRange     '0.9.10',
+24 silly addNameRange     '0.9.11',
+24 silly addNameRange     '0.9.12',
+24 silly addNameRange     '0.9.13',
+24 silly addNameRange     '0.9.14',
+24 silly addNameRange     '0.9.15' ] ]
+25 verbose addNamed [ 'includejs', '0.9.15' ]
+26 verbose addNamed [ '0.9.15', '0.9.15' ]
+27 silly lockFile 305938be-includejs-0-9-15 includejs@0.9.15
+28 verbose lock includejs@0.9.15 /home/chester/.npm/305938be-includejs-0-9-15.lock
+29 silly lockFile fc00ed9b-g-includejs-includejs-0-9-15-tgz https://registry.npmjs.org/includejs/-/includejs-0.9.15.tgz
+30 verbose lock https://registry.npmjs.org/includejs/-/includejs-0.9.15.tgz /home/chester/.npm/fc00ed9b-g-includejs-includejs-0-9-15-tgz.lock
+31 verbose addRemoteTarball [ 'https://registry.npmjs.org/includejs/-/includejs-0.9.15.tgz',
+31 verbose addRemoteTarball   '9bae166f6e5bb2cdb6635903a96d8866a621886e' ]
+32 info retry fetch attempt 1 at 22:00:06
+33 verbose fetch to= /home/chester/tmp/npm-15226-fC5Pon5y/1441047606879-0.9429410740267485/tmp.tgz
+34 http GET https://registry.npmjs.org/includejs/-/includejs-0.9.15.tgz
+35 http 200 https://registry.npmjs.org/includejs/-/includejs-0.9.15.tgz
+36 verbose tar unpack /home/chester/tmp/npm-15226-fC5Pon5y/1441047606879-0.9429410740267485/tmp.tgz
+37 silly lockFile d41c4d08-06879-0-9429410740267485-package tar:///home/chester/tmp/npm-15226-fC5Pon5y/1441047606879-0.9429410740267485/package
+38 verbose lock tar:///home/chester/tmp/npm-15226-fC5Pon5y/1441047606879-0.9429410740267485/package /home/chester/.npm/d41c4d08-06879-0-9429410740267485-package.lock
+39 silly lockFile 31700631-06879-0-9429410740267485-tmp-tgz tar:///home/chester/tmp/npm-15226-fC5Pon5y/1441047606879-0.9429410740267485/tmp.tgz
+40 verbose lock tar:///home/chester/tmp/npm-15226-fC5Pon5y/1441047606879-0.9429410740267485/tmp.tgz /home/chester/.npm/31700631-06879-0-9429410740267485-tmp-tgz.lock
+41 silly gunzTarPerm modes [ '755', '644' ]
+42 silly gunzTarPerm extractEntry package.json
+43 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+44 silly gunzTarPerm extractEntry .npmignore
+45 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+46 silly gunzTarPerm extractEntry README.md
+47 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+48 silly gunzTarPerm extractEntry builds/include.autoreload.js
+49 silly gunzTarPerm modified mode [ 'builds/include.autoreload.js', 438, 420 ]
+50 silly gunzTarPerm extractEntry builds/include.js
+51 silly gunzTarPerm modified mode [ 'builds/include.js', 438, 420 ]
+52 silly gunzTarPerm extractEntry builds/include.node.js
+53 silly gunzTarPerm modified mode [ 'builds/include.node.js', 438, 420 ]
+54 silly gunzTarPerm extractEntry builds/include.node.test.js
+55 silly gunzTarPerm modified mode [ 'builds/include.node.test.js', 438, 420 ]
+56 silly gunzTarPerm extractEntry builds/include.test.js
+57 silly gunzTarPerm modified mode [ 'builds/include.test.js', 438, 420 ]
+58 silly gunzTarPerm extractEntry bower.json
+59 silly gunzTarPerm modified mode [ 'bower.json', 438, 420 ]
+60 silly gunzTarPerm extractEntry .travis.yml
+61 silly gunzTarPerm modified mode [ '.travis.yml', 438, 420 ]
+62 silly gunzTarPerm extractEntry lib/include.autoreload.js
+63 silly gunzTarPerm modified mode [ 'lib/include.autoreload.js', 438, 420 ]
+64 silly gunzTarPerm extractEntry lib/include.js
+65 silly gunzTarPerm modified mode [ 'lib/include.js', 438, 420 ]
+66 silly gunzTarPerm extractEntry lib/include.min.js
+67 silly gunzTarPerm modified mode [ 'lib/include.min.js', 438, 420 ]
+68 silly gunzTarPerm extractEntry lib/include.node.js
+69 silly gunzTarPerm modified mode [ 'lib/include.node.js', 438, 420 ]
+70 silly gunzTarPerm extractEntry lib/include.node.test.js
+71 silly gunzTarPerm modified mode [ 'lib/include.node.test.js', 438, 420 ]
+72 silly gunzTarPerm extractEntry lib/include.test.js
+73 silly gunzTarPerm modified mode [ 'lib/include.test.js', 438, 420 ]
+74 silly gunzTarPerm extractEntry lib/include.min.js.map
+75 silly gunzTarPerm modified mode [ 'lib/include.min.js.map', 438, 420 ]
+76 silly gunzTarPerm extractEntry lib/loader/coffee/coffee-script.js
+77 silly gunzTarPerm modified mode [ 'lib/loader/coffee/coffee-script.js', 438, 420 ]
+78 silly gunzTarPerm extractEntry lib/loader/coffee/loader.js
+79 silly gunzTarPerm modified mode [ 'lib/loader/coffee/loader.js', 438, 420 ]
+80 silly gunzTarPerm extractEntry lib/loader/less/less-min.js
+81 silly gunzTarPerm modified mode [ 'lib/loader/less/less-min.js', 438, 420 ]
+82 silly gunzTarPerm extractEntry lib/loader/less/loader.js
+83 silly gunzTarPerm modified mode [ 'lib/loader/less/loader.js', 438, 420 ]
+84 silly gunzTarPerm extractEntry lib/loader/traceur/loader.js
+85 silly gunzTarPerm modified mode [ 'lib/loader/traceur/loader.js', 438, 420 ]
+86 silly gunzTarPerm extractEntry lib/loader/traceur/traceur.js
+87 silly gunzTarPerm modified mode [ 'lib/loader/traceur/traceur.js', 438, 420 ]
+88 silly gunzTarPerm extractEntry lib/loader/yml/js-yaml.min.js
+89 silly gunzTarPerm modified mode [ 'lib/loader/yml/js-yaml.min.js', 438, 420 ]
+90 silly gunzTarPerm extractEntry lib/loader/yml/loader.js
+91 silly gunzTarPerm modified mode [ 'lib/loader/yml/loader.js', 438, 420 ]
+92 silly gunzTarPerm extractEntry src/1.scope-vars.js
+93 silly gunzTarPerm modified mode [ 'src/1.scope-vars.js', 438, 420 ]
+94 silly gunzTarPerm extractEntry src/3.Events.js
+95 silly gunzTarPerm modified mode [ 'src/3.Events.js', 438, 420 ]
+96 silly gunzTarPerm extractEntry src/4.IncludeDeferred.js
+97 silly gunzTarPerm modified mode [ 'src/4.IncludeDeferred.js', 438, 420 ]
+98 silly gunzTarPerm extractEntry src/5.Include.js
+99 silly gunzTarPerm modified mode [ 'src/5.Include.js', 438, 420 ]
+100 silly gunzTarPerm extractEntry src/20.Autoreload.js
+101 silly gunzTarPerm modified mode [ 'src/20.Autoreload.js', 438, 420 ]
+102 silly gunzTarPerm extractEntry src/10.export.js
+103 silly gunzTarPerm modified mode [ 'src/10.export.js', 438, 420 ]
+104 silly gunzTarPerm extractEntry src/8.LazyModule.js
+105 silly gunzTarPerm modified mode [ 'src/8.LazyModule.js', 438, 420 ]
+106 silly gunzTarPerm extractEntry src/9.Resource.js
+107 silly gunzTarPerm modified mode [ 'src/9.Resource.js', 438, 420 ]
+108 silly gunzTarPerm extractEntry src/eval-browser.js
+109 silly gunzTarPerm modified mode [ 'src/eval-browser.js', 438, 420 ]
+110 silly gunzTarPerm extractEntry src/eval-node.js
+111 silly gunzTarPerm modified mode [ 'src/eval-node.js', 438, 420 ]
+112 silly gunzTarPerm extractEntry src/2.Routing.js
+113 silly gunzTarPerm modified mode [ 'src/2.Routing.js', 438, 420 ]
+114 silly gunzTarPerm extractEntry src/head-test.js
+115 silly gunzTarPerm modified mode [ 'src/head-test.js', 438, 420 ]
+116 silly gunzTarPerm extractEntry src/2.Helper.js
+117 silly gunzTarPerm modified mode [ 'src/2.Helper.js', 438, 420 ]
+118 silly gunzTarPerm extractEntry src/head.js
+119 silly gunzTarPerm modified mode [ 'src/head.js', 438, 420 ]
+120 silly gunzTarPerm extractEntry src/6.ScriptStack.js
+121 silly gunzTarPerm modified mode [ 'src/6.ScriptStack.js', 438, 420 ]
+122 silly gunzTarPerm extractEntry src/7.CustomLoader.js
+123 silly gunzTarPerm modified mode [ 'src/7.CustomLoader.js', 438, 420 ]
+124 silly gunzTarPerm extractEntry src/loader/json.js
+125 silly gunzTarPerm modified mode [ 'src/loader/json.js', 438, 420 ]
+126 silly gunzTarPerm extractEntry src/loader/pack.js
+127 silly gunzTarPerm modified mode [ 'src/loader/pack.js', 438, 420 ]
+128 silly gunzTarPerm extractEntry src/node/export-include.js
+129 silly gunzTarPerm modified mode [ 'src/node/export-include.js', 438, 420 ]
+130 silly gunzTarPerm extractEntry src/node/export-resource.js
+131 silly gunzTarPerm modified mode [ 'src/node/export-resource.js', 438, 420 ]
+132 silly gunzTarPerm extractEntry src/node/node.js
+133 silly gunzTarPerm modified mode [ 'src/node/node.js', 438, 420 ]
+134 silly gunzTarPerm extractEntry src/node/xhr.js
+135 silly gunzTarPerm modified mode [ 'src/node/xhr.js', 438, 420 ]
+136 silly gunzTarPerm extractEntry src/node/utils/bin.js
+137 silly gunzTarPerm modified mode [ 'src/node/utils/bin.js', 438, 420 ]
+138 silly gunzTarPerm extractEntry src/node/utils/file.js
+139 silly gunzTarPerm modified mode [ 'src/node/utils/file.js', 438, 420 ]
+140 silly gunzTarPerm extractEntry src/utils/array.js
+141 silly gunzTarPerm modified mode [ 'src/utils/array.js', 438, 420 ]
+142 silly gunzTarPerm extractEntry src/utils/fn.js
+143 silly gunzTarPerm modified mode [ 'src/utils/fn.js', 438, 420 ]
+144 silly gunzTarPerm extractEntry src/utils/object.js
+145 silly gunzTarPerm modified mode [ 'src/utils/object.js', 438, 420 ]
+146 silly gunzTarPerm extractEntry src/utils/path.js
+147 silly gunzTarPerm modified mode [ 'src/utils/path.js', 438, 420 ]
+148 silly gunzTarPerm extractEntry src/utils/tree.js
+149 silly gunzTarPerm modified mode [ 'src/utils/tree.js', 438, 420 ]
+150 silly gunzTarPerm extractEntry .dev/js-loading-test/ext.js
+151 silly gunzTarPerm modified mode [ '.dev/js-loading-test/ext.js', 438, 420 ]
+152 silly gunzTarPerm extractEntry .dev/js-loading-test/main.js
+153 silly gunzTarPerm modified mode [ '.dev/js-loading-test/main.js', 438, 420 ]
+154 silly gunzTarPerm extractEntry .dev/js-loading-test/index.html
+155 silly gunzTarPerm modified mode [ '.dev/js-loading-test/index.html', 438, 420 ]
+156 silly gunzTarPerm extractEntry .dev/loader/build.js
+157 silly gunzTarPerm modified mode [ '.dev/loader/build.js', 438, 420 ]
+158 silly gunzTarPerm extractEntry .dev/loader/include.routes.js
+159 silly gunzTarPerm modified mode [ '.dev/loader/include.routes.js', 438, 420 ]
+160 silly gunzTarPerm extractEntry .dev/loader/index.dev.build/script.js
+161 silly gunzTarPerm modified mode [ '.dev/loader/index.dev.build/script.js', 438, 420 ]
+162 silly gunzTarPerm extractEntry .dev/loader/index.dev.build/style.css
+163 silly gunzTarPerm modified mode [ '.dev/loader/index.dev.build/style.css', 438, 420 ]
+164 silly gunzTarPerm extractEntry .dev/loader/index.dev.build.html
+165 silly gunzTarPerm modified mode [ '.dev/loader/index.dev.build.html', 438, 420 ]
+166 silly gunzTarPerm extractEntry .dev/loader/index.dev.html
+167 silly gunzTarPerm modified mode [ '.dev/loader/index.dev.html', 438, 420 ]
+168 silly gunzTarPerm extractEntry .dev/loader/script/main.js
+169 silly gunzTarPerm modified mode [ '.dev/loader/script/main.js', 438, 420 ]
+170 silly gunzTarPerm extractEntry .dev/loader/script/test.coffee
+171 silly gunzTarPerm modified mode [ '.dev/loader/script/test.coffee', 438, 420 ]
+172 silly gunzTarPerm extractEntry .dev/loader/style/main.css
+173 silly gunzTarPerm modified mode [ '.dev/loader/style/main.css', 438, 420 ]
+174 silly gunzTarPerm extractEntry .dev/loader/style/view.less
+175 silly gunzTarPerm modified mode [ '.dev/loader/style/view.less', 438, 420 ]
+176 silly gunzTarPerm extractEntry .dev/test/a.js
+177 silly gunzTarPerm modified mode [ '.dev/test/a.js', 438, 420 ]
+178 silly gunzTarPerm extractEntry .dev/test/a.sub.js
+179 silly gunzTarPerm modified mode [ '.dev/test/a.sub.js', 438, 420 ]
+180 silly gunzTarPerm extractEntry .dev/test/embedded.js
+181 silly gunzTarPerm modified mode [ '.dev/test/embedded.js', 438, 420 ]
+182 silly gunzTarPerm extractEntry .dev/test/lazy.js
+183 silly gunzTarPerm modified mode [ '.dev/test/lazy.js', 438, 420 ]
+184 silly gunzTarPerm extractEntry .dev/test/main.js
+185 silly gunzTarPerm modified mode [ '.dev/test/main.js', 438, 420 ]
+186 silly gunzTarPerm extractEntry .dev/test/data.json
+187 silly gunzTarPerm modified mode [ '.dev/test/data.json', 438, 420 ]
+188 silly gunzTarPerm extractEntry .dev/test/index.html
+189 silly gunzTarPerm modified mode [ '.dev/test/index.html', 438, 420 ]
+190 silly gunzTarPerm extractEntry .dev/test/release/embedded.js
+191 silly gunzTarPerm modified mode [ '.dev/test/release/embedded.js', 438, 420 ]
+192 silly gunzTarPerm extractEntry .dev/test/release/index.html
+193 silly gunzTarPerm modified mode [ '.dev/test/release/index.html', 438, 420 ]
+194 silly gunzTarPerm extractEntry .dev/test/release/script/build.release.js
+195 silly gunzTarPerm modified mode [ '.dev/test/release/script/build.release.js', 438, 420 ]
+196 silly gunzTarPerm extractEntry .dev/test/release/style/build.release.css
+197 silly gunzTarPerm modified mode [ '.dev/test/release/style/build.release.css', 438, 420 ]
+198 silly gunzTarPerm extractEntry .dev/test/style.css
+199 silly gunzTarPerm modified mode [ '.dev/test/style.css', 438, 420 ]
+200 silly lockFile d41c4d08-06879-0-9429410740267485-package tar:///home/chester/tmp/npm-15226-fC5Pon5y/1441047606879-0.9429410740267485/package
+201 silly lockFile d41c4d08-06879-0-9429410740267485-package tar:///home/chester/tmp/npm-15226-fC5Pon5y/1441047606879-0.9429410740267485/package
+202 silly lockFile 31700631-06879-0-9429410740267485-tmp-tgz tar:///home/chester/tmp/npm-15226-fC5Pon5y/1441047606879-0.9429410740267485/tmp.tgz
+203 silly lockFile 31700631-06879-0-9429410740267485-tmp-tgz tar:///home/chester/tmp/npm-15226-fC5Pon5y/1441047606879-0.9429410740267485/tmp.tgz
+204 verbose tar pack [ '/home/chester/.npm/includejs/0.9.15/package.tgz',
+204 verbose tar pack   '/home/chester/tmp/npm-15226-fC5Pon5y/1441047606879-0.9429410740267485/package' ]
+205 verbose tarball /home/chester/.npm/includejs/0.9.15/package.tgz
+206 verbose folder /home/chester/tmp/npm-15226-fC5Pon5y/1441047606879-0.9429410740267485/package
+207 silly lockFile d41c4d08-06879-0-9429410740267485-package tar:///home/chester/tmp/npm-15226-fC5Pon5y/1441047606879-0.9429410740267485/package
+208 verbose lock tar:///home/chester/tmp/npm-15226-fC5Pon5y/1441047606879-0.9429410740267485/package /home/chester/.npm/d41c4d08-06879-0-9429410740267485-package.lock
+209 silly lockFile c95d53fb-npm-includejs-0-9-15-package-tgz tar:///home/chester/.npm/includejs/0.9.15/package.tgz
+210 verbose lock tar:///home/chester/.npm/includejs/0.9.15/package.tgz /home/chester/.npm/c95d53fb-npm-includejs-0-9-15-package-tgz.lock
+211 silly lockFile d41c4d08-06879-0-9429410740267485-package tar:///home/chester/tmp/npm-15226-fC5Pon5y/1441047606879-0.9429410740267485/package
+212 silly lockFile d41c4d08-06879-0-9429410740267485-package tar:///home/chester/tmp/npm-15226-fC5Pon5y/1441047606879-0.9429410740267485/package
+213 silly lockFile c95d53fb-npm-includejs-0-9-15-package-tgz tar:///home/chester/.npm/includejs/0.9.15/package.tgz
+214 silly lockFile c95d53fb-npm-includejs-0-9-15-package-tgz tar:///home/chester/.npm/includejs/0.9.15/package.tgz
+215 silly lockFile f7370f9d-ter-npm-includejs-0-9-15-package /home/chester/.npm/includejs/0.9.15/package
+216 verbose lock /home/chester/.npm/includejs/0.9.15/package /home/chester/.npm/f7370f9d-ter-npm-includejs-0-9-15-package.lock
+217 silly lockFile f7370f9d-ter-npm-includejs-0-9-15-package /home/chester/.npm/includejs/0.9.15/package
+218 silly lockFile f7370f9d-ter-npm-includejs-0-9-15-package /home/chester/.npm/includejs/0.9.15/package
+219 verbose tar unpack /home/chester/.npm/includejs/0.9.15/package.tgz
+220 silly lockFile 66a90b55-ter-npm-includejs-0-9-15-package tar:///home/chester/.npm/includejs/0.9.15/package
+221 verbose lock tar:///home/chester/.npm/includejs/0.9.15/package /home/chester/.npm/66a90b55-ter-npm-includejs-0-9-15-package.lock
+222 silly lockFile c95d53fb-npm-includejs-0-9-15-package-tgz tar:///home/chester/.npm/includejs/0.9.15/package.tgz
+223 verbose lock tar:///home/chester/.npm/includejs/0.9.15/package.tgz /home/chester/.npm/c95d53fb-npm-includejs-0-9-15-package-tgz.lock
+224 silly gunzTarPerm modes [ '755', '644' ]
+225 silly gunzTarPerm extractEntry package.json
+226 silly gunzTarPerm extractEntry .npmignore
+227 silly gunzTarPerm extractEntry README.md
+228 silly gunzTarPerm extractEntry .dev/js-loading-test/ext.js
+229 silly gunzTarPerm extractEntry .dev/js-loading-test/main.js
+230 silly gunzTarPerm extractEntry .dev/js-loading-test/index.html
+231 silly gunzTarPerm extractEntry .dev/loader/build.js
+232 silly gunzTarPerm extractEntry .dev/loader/include.routes.js
+233 silly gunzTarPerm extractEntry .dev/loader/index.dev.build/script.js
+234 silly gunzTarPerm extractEntry .dev/loader/index.dev.build/style.css
+235 silly gunzTarPerm extractEntry .dev/loader/index.dev.build.html
+236 silly gunzTarPerm extractEntry .dev/loader/index.dev.html
+237 silly gunzTarPerm extractEntry .dev/loader/script/main.js
+238 silly gunzTarPerm extractEntry .dev/loader/script/test.coffee
+239 silly gunzTarPerm extractEntry .dev/loader/style/main.css
+240 silly gunzTarPerm extractEntry .dev/loader/style/view.less
+241 silly gunzTarPerm extractEntry .dev/test/a.js
+242 silly gunzTarPerm extractEntry .dev/test/a.sub.js
+243 silly gunzTarPerm extractEntry .dev/test/embedded.js
+244 silly gunzTarPerm extractEntry .dev/test/lazy.js
+245 silly gunzTarPerm extractEntry .dev/test/main.js
+246 silly gunzTarPerm extractEntry .dev/test/data.json
+247 silly gunzTarPerm extractEntry .dev/test/index.html
+248 silly gunzTarPerm extractEntry .dev/test/release/embedded.js
+249 silly gunzTarPerm extractEntry .dev/test/release/index.html
+250 silly gunzTarPerm extractEntry .dev/test/release/script/build.release.js
+251 silly gunzTarPerm extractEntry .dev/test/release/style/build.release.css
+252 silly gunzTarPerm extractEntry .dev/test/style.css
+253 silly gunzTarPerm extractEntry .travis.yml
+254 silly gunzTarPerm extractEntry bower.json
+255 silly gunzTarPerm extractEntry builds/include.autoreload.js
+256 silly gunzTarPerm extractEntry builds/include.js
+257 silly gunzTarPerm extractEntry builds/include.node.js
+258 silly gunzTarPerm extractEntry builds/include.node.test.js
+259 silly gunzTarPerm extractEntry builds/include.test.js
+260 silly gunzTarPerm extractEntry lib/include.autoreload.js
+261 silly gunzTarPerm extractEntry lib/include.js
+262 silly gunzTarPerm extractEntry lib/include.min.js
+263 silly gunzTarPerm extractEntry lib/include.node.js
+264 silly gunzTarPerm extractEntry lib/include.node.test.js
+265 silly gunzTarPerm extractEntry lib/include.test.js
+266 silly gunzTarPerm extractEntry lib/include.min.js.map
+267 silly gunzTarPerm extractEntry lib/loader/coffee/coffee-script.js
+268 silly gunzTarPerm extractEntry lib/loader/coffee/loader.js
+269 silly gunzTarPerm extractEntry lib/loader/less/less-min.js
+270 silly gunzTarPerm extractEntry lib/loader/less/loader.js
+271 silly gunzTarPerm extractEntry lib/loader/traceur/loader.js
+272 silly gunzTarPerm extractEntry lib/loader/traceur/traceur.js
+273 silly gunzTarPerm extractEntry lib/loader/yml/js-yaml.min.js
+274 silly gunzTarPerm extractEntry lib/loader/yml/loader.js
+275 silly gunzTarPerm extractEntry src/1.scope-vars.js
+276 silly gunzTarPerm extractEntry src/3.Events.js
+277 silly gunzTarPerm extractEntry src/4.IncludeDeferred.js
+278 silly gunzTarPerm extractEntry src/5.Include.js
+279 silly gunzTarPerm extractEntry src/20.Autoreload.js
+280 silly gunzTarPerm extractEntry src/10.export.js
+281 silly gunzTarPerm extractEntry src/8.LazyModule.js
+282 silly gunzTarPerm extractEntry src/9.Resource.js
+283 silly gunzTarPerm extractEntry src/eval-browser.js
+284 silly gunzTarPerm extractEntry src/eval-node.js
+285 silly gunzTarPerm extractEntry src/2.Routing.js
+286 silly gunzTarPerm extractEntry src/head-test.js
+287 silly gunzTarPerm extractEntry src/2.Helper.js
+288 silly gunzTarPerm extractEntry src/head.js
+289 silly gunzTarPerm extractEntry src/6.ScriptStack.js
+290 silly gunzTarPerm extractEntry src/7.CustomLoader.js
+291 silly gunzTarPerm extractEntry src/loader/json.js
+292 silly gunzTarPerm extractEntry src/loader/pack.js
+293 silly gunzTarPerm extractEntry src/node/export-include.js
+294 silly gunzTarPerm extractEntry src/node/export-resource.js
+295 silly gunzTarPerm extractEntry src/node/node.js
+296 silly gunzTarPerm extractEntry src/node/xhr.js
+297 silly gunzTarPerm extractEntry src/node/utils/bin.js
+298 silly gunzTarPerm extractEntry src/node/utils/file.js
+299 silly gunzTarPerm extractEntry src/utils/array.js
+300 silly gunzTarPerm extractEntry src/utils/fn.js
+301 silly gunzTarPerm extractEntry src/utils/object.js
+302 silly gunzTarPerm extractEntry src/utils/path.js
+303 silly gunzTarPerm extractEntry src/utils/tree.js
+304 silly lockFile 66a90b55-ter-npm-includejs-0-9-15-package tar:///home/chester/.npm/includejs/0.9.15/package
+305 silly lockFile 66a90b55-ter-npm-includejs-0-9-15-package tar:///home/chester/.npm/includejs/0.9.15/package
+306 silly lockFile c95d53fb-npm-includejs-0-9-15-package-tgz tar:///home/chester/.npm/includejs/0.9.15/package.tgz
+307 silly lockFile c95d53fb-npm-includejs-0-9-15-package-tgz tar:///home/chester/.npm/includejs/0.9.15/package.tgz
+308 verbose chmod /home/chester/.npm/includejs/0.9.15/package.tgz 644
+309 verbose chown /home/chester/.npm/includejs/0.9.15/package.tgz [ 1000, 1000 ]
+310 silly lockFile fc00ed9b-g-includejs-includejs-0-9-15-tgz https://registry.npmjs.org/includejs/-/includejs-0.9.15.tgz
+311 silly lockFile fc00ed9b-g-includejs-includejs-0-9-15-tgz https://registry.npmjs.org/includejs/-/includejs-0.9.15.tgz
+312 silly lockFile 305938be-includejs-0-9-15 includejs@0.9.15
+313 silly lockFile 305938be-includejs-0-9-15 includejs@0.9.15
+314 silly lockFile ef09f83c-includejs includejs@
+315 silly lockFile ef09f83c-includejs includejs@
+316 silly resolved [ { name: 'includejs',
+316 silly resolved     description: 'Resource Loader',
+316 silly resolved     version: '0.9.15',
+316 silly resolved     homepage: 'http://atmajs.com/include',
+316 silly resolved     contributors: [],
+316 silly resolved     author: { name: 'Alex Kit', email: 'alex.kit@atmajs.com' },
+316 silly resolved     repository: { type: 'git', url: 'https://github.com/tenbits/IncludeJS.git' },
+316 silly resolved     bugs: { url: 'https://github.com/tenbits/IncludeJS/issues' },
+316 silly resolved     licenses: [ 'MIT' ],
+316 silly resolved     main: './lib/include.node.js',
+316 silly resolved     dependencies: {},
+316 silly resolved     devDependencies: { atma: '>0.9.0' },
+316 silly resolved     scripts: { test: 'atma test' },
+316 silly resolved     keywords: [],
+316 silly resolved     engines: { node: '~0.8.9' },
+316 silly resolved     atma: { plugins: [Object], settings: [Object] },
+316 silly resolved     readme: '#### IncludeJS\r\n\r\n_The Resource Loader for Browsers and NodeJS_\r\n\r\n[![Build Status](https://travis-ci.org/atmajs/IncludeJS.svg?branch=master)](https://travis-ci.org/atmajs/IncludeJS)\r\n[![NPM version](https://badge.fury.io/js/includejs.svg)](http://badge.fury.io/js/includejs)\r\n[![Bower version](https://badge.fury.io/bo/includejs.svg)](http://badge.fury.io/bo/includejs)\r\n\r\nFeatures:\r\n\r\n- Loads any content: scripts, styles, ajax\r\n- Development friendly: incremental builds are not required\r\n- Production: Build the application into single html, js and css @see the [Atma.Toolkit](https://github.com/atmajs/Atma.Toolkit)\r\n- Inline Dependency Declaration\r\n\t\r\n\t_No external files, such as package.json or config.js_\r\n\t\r\n- Load any javascript\r\n- No prerequests for module declaration. But supports also `CommonJS` and `include.exports`\r\n\r\n- Namespaced routing\r\n\t```javascript\r\n\tinclude\r\n\t\t.routes({ controller: \'/src/controllers/{0}.js\' }); \r\n\t\t//... \r\n\tinclude\r\n\t\t.js({controller: \'user\' });\r\n\t```\r\n- Parameterized include\r\n\t```javascript\r\n\t// foo.js\r\n\tinclude.js({ compo: \'baz?color=green\' });\r\n\t\r\n\t// baz.js\r\n\tdocument.body.style.backgroundColor = include.iparams.color\r\n\t```\r\n\t\r\n- Javascript Aliases\r\n\t```javascript\r\n\tinclude.js(\'myScript.js::Logger\').done(function(response){\r\n\t\tresponse.Logger.logMe();\r\n\t});\t\r\n\t```\r\n\t\r\n- Custom Loader Support\r\n\r\n- Lazy Modules\r\n\r\n\t_Scripts will be evaluated only when you needs them_\r\n\t\r\n\r\n- Pause resource loading\r\n\r\n\t```javascript\r\n\t// pause current module\r\n\tvar resume = include.pause();\r\n\t\r\n\tsomeAsyncJob(function(){\r\n\t\t// resume with exports example\r\n\t\tresume({ baz: \'quux\' });\r\n\t})\r\n\t```\r\n\r\n----\r\n:copyright: 2014 Atma.js Project\r\n\r\n\r\n',
+316 silly resolved     readmeFilename: 'README.md',
+316 silly resolved     _id: 'includejs@0.9.15',
+316 silly resolved     dist: { shasum: '01dc560a25adb63cca9562017afe1adc83df642c' },
+316 silly resolved     _from: 'includejs@',
+316 silly resolved     _resolved: 'https://registry.npmjs.org/includejs/-/includejs-0.9.15.tgz' } ]
+317 info install includejs@0.9.15 into /usr/local/lib
+318 info installOne includejs@0.9.15
+319 warn engine includejs@0.9.15: wanted: {"node":"~0.8.9"} (current: {"node":"v0.10.25","npm":"1.3.10"})
+320 info /usr/local/lib/node_modules/includejs unbuild
+321 verbose tar unpack /home/chester/.npm/includejs/0.9.15/package.tgz
+322 silly lockFile 16508c27-local-lib-node-modules-includejs tar:///usr/local/lib/node_modules/includejs
+323 verbose lock tar:///usr/local/lib/node_modules/includejs /home/chester/.npm/16508c27-local-lib-node-modules-includejs.lock
+324 silly lockFile c95d53fb-npm-includejs-0-9-15-package-tgz tar:///home/chester/.npm/includejs/0.9.15/package.tgz
+325 verbose lock tar:///home/chester/.npm/includejs/0.9.15/package.tgz /home/chester/.npm/c95d53fb-npm-includejs-0-9-15-package-tgz.lock
+326 silly gunzTarPerm modes [ '755', '644' ]
+327 error Error: EACCES, mkdir '/usr/local/lib/node_modules'
+327 error  { [Error: EACCES, mkdir '/usr/local/lib/node_modules']
+327 error   errno: 3,
+327 error   code: 'EACCES',
+327 error   path: '/usr/local/lib/node_modules',
+327 error   fstream_type: 'Directory',
+327 error   fstream_path: '/usr/local/lib/node_modules/includejs',
+327 error   fstream_class: 'DirWriter',
+327 error   fstream_stack:
+327 error    [ '/usr/lib/nodejs/fstream/lib/writer.js:171:23',
+327 error      '/usr/lib/nodejs/mkdirp/index.js:37:53',
+327 error      'Object.oncomplete (fs.js:107:15)' ] }
+328 error Please try running this command again as root/Administrator.
+329 error System Linux 3.16.0-46-generic
+330 error command "/usr/bin/nodejs" "/usr/bin/npm" "install" "includejs" "-g"
+331 error cwd /home/chester/Документы/prog/gitfiles/snailgame
+332 error node -v v0.10.25
+333 error npm -v 1.3.10
+334 error path /usr/local/lib/node_modules
+335 error fstream_path /usr/local/lib/node_modules/includejs
+336 error fstream_type Directory
+337 error fstream_class DirWriter
+338 error code EACCES
+339 error errno 3
+340 error stack Error: EACCES, mkdir '/usr/local/lib/node_modules'
+341 error fstream_stack /usr/lib/nodejs/fstream/lib/writer.js:171:23
+341 error fstream_stack /usr/lib/nodejs/mkdirp/index.js:37:53
+341 error fstream_stack Object.oncomplete (fs.js:107:15)
+342 verbose exit [ 3, true ]

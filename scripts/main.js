@@ -36,9 +36,6 @@ var socket=io.connect();
 /**
 переменная сокета
 **/
-var players=[];
-var mynick;
-var snail;
 
 var startgame=false;
 /**
@@ -80,22 +77,7 @@ function reFillField(snake)
 	 		field[i][j]=0;
 	 	}
  	}
- 	for(var j=0;j<snake.parts.length;j++)
-	{
-		if(j==0)
-		{
-			if(field[snake.parts[j].x,snake.parts[j].y] ==0)
-			{
-				field[snake.parts[j].x,snake.parts[j].y]=2;
-			}
-			else 
-			{
-				startgame=false;
-			}
-		}
-		field[snake.parts[j].x,snake.parts[j].y]=1;
-	 	
-	}
+ 	
 }
 
 /**
@@ -125,8 +107,8 @@ function initialization()
 
 
 
-
-	setInterval(render,1000/60);
+	render();
+	setInterval(render,1000);
 }
 
 
@@ -142,8 +124,8 @@ function update()
 {
 	if(startgame)
 	{
-		snail.update();
-		reFillField(snail);
+		//snail.update();
+		//reFillField(snail);
 	}
 	
 }
@@ -201,7 +183,7 @@ function render()
 		{
 			$('#users').hide();
 			$("#error").hide();
-			snail=new Snake();
+			
 			startgame=true;
 
 		}else{
