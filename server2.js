@@ -117,7 +117,7 @@ function reFillField()
  	{
  		for(var j=0;j<height;j++)
 	 	{
-	 		field[i][j]=0;
+	 		mainfield[i][j]=0;
 	 	}
  	}
 }
@@ -125,7 +125,17 @@ function reFillField()
 function player(nick)
 {
 	this.nick=nick;
-	//this.snail=new Snail();
+	this.snail=new Snake();
+}
+
+
+function update()
+{
+    for(var i=0;i<players.length;i++)
+    {
+        players[i].snail.move();
+    }
+    io.sockets.emit('test',mainfield);
 }
 
 
@@ -144,11 +154,38 @@ function Snake()
 	this.bodysnake.push(new vector2(10,5));
 	this.bodysnake.push(new vector2(9,5));
 	this.bodysnake.push(new vector2(8,5));
-	this.lastpos= undefined;
+	this.lastpos= new vector2(0,0);
 	this.direction=DirectionEnum.RIGHT;
+    this.nextpos=function()
+    {
+        var nextposition=this.bodysnake[0];
+        switch(this.direction)
+	    {
+		case DirectionEnum.UP:
+			nextposition.y--;
+		break;
+
+		case DirectionEnum.LEFT:
+			nextposition.x--;
+		break;
+
+		case DirectionEnum.DOWN:
+			nextposition.y++;
+		break;
+
+		case DirectionEnum.RIGHT:
+			nextposition.x++;
+		break;
+	   }
+    return nextposition;
+    }
 }
 Snake.prototype.move = function(direction) {
-	switch(direction)
+    if(mainfield[this.nextpos.x][this.nextpos.y]==0)
+    {
+        this.bodysnake[0]=this.nextpos;
+    }
+	/*switch(this.direction)
 	{
 		case DirectionEnum.UP:
 			this.bodysnake[0].y--;
@@ -165,14 +202,28 @@ Snake.prototype.move = function(direction) {
 		case DirectionEnum.RIGHT:
 			this.bodysnake[0].x++;
 		break;
-	}
+	}*/
 
 	this.lastpos=this.bodysnake[this.bodysnake.length-1];
 	for(var i=this.bodysnake.length-1;i>0;i--)
 	{
 		this.bodysnake[i]=this.bodysnake[i-1];
 	}
+    //reFillField();
+    for(var i=this.bodysnake.length-1;i>-1;i--)
+	{
+        if(i==0)
+        {
+            mainfield[this.bodysnake[i].x][this.bodysnake[i].y]=1;
+        }
+        else 
+        {
+            mainfield[this.bodysnake[i].x][this.bodysnake[i].y]=2;
+        }
+	}
 };
+
+
 
 
 function vector2(x,y)
@@ -181,3 +232,7 @@ function vector2(x,y)
 	this.y=y;
 }
 
+
+
+
+setInterval(update,1000);

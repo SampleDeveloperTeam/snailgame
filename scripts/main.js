@@ -206,6 +206,10 @@ function render()
 		}
 		$("#userlist").html(html);
 	});
+     
+     socket.on('test',function(data){
+         field=data;
+     });
  }
 
 
