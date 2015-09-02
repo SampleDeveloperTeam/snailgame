@@ -93,7 +93,7 @@ $(document).ready(function(){
 	
 	connection();
 
-	initialization();
+	
 
 });
 
@@ -105,10 +105,13 @@ function initialization()
 	$ctx=canvas.getContext("2d");
 	createField();
 
-
+    $(document).keydown(function(e){
+        var code=e.which;
+        socket.emit('control',code);
+    });
 
 	render();
-	setInterval(render,1000);
+	setInterval(render,1000/60);
 }
 
 
@@ -185,6 +188,7 @@ function render()
 			$("#error").hide();
 			
 			startgame=true;
+            initialization();
 
 		}else{
 
@@ -208,7 +212,17 @@ function render()
 	});
      
      socket.on('test',function(data){
-         field=data;
+         reFillField();
+        for(var i=0;i<data.length;i++)
+        {
+            if(i==0)
+               {
+                field[data[i].x][data[i].y]=1;
+               }
+               else
+            field[data[i].x][data[i].y]=2;
+        }
+         
      });
  }
 

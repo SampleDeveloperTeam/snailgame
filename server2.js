@@ -6,7 +6,6 @@ io=require('socket.io').listen(server);
 
 
 
-
 server.listen(8080,'192.168.1.4');
 
 
@@ -46,7 +45,32 @@ io.sockets.on('connection',function(socket){
 			callback(false);
 		}
 		io.sockets.emit('usernames',players);
+        
 	});
+    
+    socket.on('control',function(data){
+        for(var i=0;i<players.length;i++)
+        {
+            if(players[i].nick==socket.nickname)
+            {
+                switch (data)
+                {
+                    case 38:
+                        if(players[i].snail.direction!=DirectionEnum.DOWN) players[i].snail.direction=DirectionEnum.UP;
+                        break;
+                     case 37:
+                        if(players[i].snail.direction!=DirectionEnum.RIGHT) players[i].snail.direction=DirectionEnum.LEFT;
+                        break;
+                     case 40:
+                        if(players[i].snail.direction!=DirectionEnum.UP) players[i].snail.direction=DirectionEnum.DOWN;
+                        break;
+                     case 39:
+                        if(players[i].snail.direction!=DirectionEnum.LEFT) players[i].snail.direction=DirectionEnum.RIGHT;
+                        break;
+                }
+            }
+        }
+    });
 
 });
 
@@ -110,6 +134,7 @@ function createField()
  	return field;
 
 }
+
 function reFillField()
 {
 	
@@ -120,12 +145,13 @@ function reFillField()
 	 		mainfield[i][j]=0;
 	 	}
  	}
+	
 }
 
 function player(nick)
 {
 	this.nick=nick;
-	this.snail=new Snake();
+	this.snail=new Snake(4,5,3,5,2,5);
 }
 
 
@@ -134,11 +160,18 @@ function update()
     for(var i=0;i<players.length;i++)
     {
         players[i].snail.move();
+        //players[i].snail.setNextPosition();
     }
-    io.sockets.emit('test',mainfield);
+    sendSnail();
 }
 
-
+function sendSnail()
+{
+    if(players.length>0)
+    {
+        io.sockets.emit('test',players[0].snail.body);
+    }
+}
 
 DirectionEnum={
 	UP:0,
@@ -147,80 +180,50 @@ DirectionEnum={
 	RIGHT:3
 }
 
-function Snake()
+function Snake(x0,y0,x1,y1,x2,y2)
 {
-	this.bodysnake=new Array();
-
-	this.bodysnake.push(new vector2(10,5));
-	this.bodysnake.push(new vector2(9,5));
-	this.bodysnake.push(new vector2(8,5));
-	this.lastpos= new vector2(0,0);
-	this.direction=DirectionEnum.RIGHT;
-    this.nextpos=function()
-    {
-        var nextposition=this.bodysnake[0];
-        switch(this.direction)
-	    {
-		case DirectionEnum.UP:
-			nextposition.y--;
-		break;
-
-		case DirectionEnum.LEFT:
-			nextposition.x--;
-		break;
-
-		case DirectionEnum.DOWN:
-			nextposition.y++;
-		break;
-
-		case DirectionEnum.RIGHT:
-			nextposition.x++;
-		break;
-	   }
-    return nextposition;
-    }
+    this.direction=DirectionEnum.RIGHT;
+    this.length=3;
+    this.body=new Array();
+    this.body.push(new vector2(x0,y0));
+    this.body.push(new vector2(x1,y1));
+    this.body.push(new vector2(x2,y2));
+    
+    
 }
-Snake.prototype.move = function(direction) {
-    if(mainfield[this.nextpos.x][this.nextpos.y]==0)
+
+
+Snake.prototype.move = function() {
+    
+    for(var i=this.length-1;i>0;i--)
     {
-        this.bodysnake[0]=this.nextpos;
+        this.body[i].x=this.body[i-1].x;
+        this.body[i].y=this.body[i-1].y;
     }
-	/*switch(this.direction)
-	{
-		case DirectionEnum.UP:
-			this.bodysnake[0].y--;
-		break;
-
-		case DirectionEnum.LEFT:
-			this.bodysnake[0].x--;
-		break;
-
-		case DirectionEnum.DOWN:
-			this.bodysnake[0].y++;
-		break;
-
-		case DirectionEnum.RIGHT:
-			this.bodysnake[0].x++;
-		break;
-	}*/
-
-	this.lastpos=this.bodysnake[this.bodysnake.length-1];
-	for(var i=this.bodysnake.length-1;i>0;i--)
-	{
-		this.bodysnake[i]=this.bodysnake[i-1];
-	}
-    //reFillField();
-    for(var i=this.bodysnake.length-1;i>-1;i--)
-	{
-        if(i==0)
-        {
-            mainfield[this.bodysnake[i].x][this.bodysnake[i].y]=1;
-        }
-        else 
-        {
-            mainfield[this.bodysnake[i].x][this.bodysnake[i].y]=2;
-        }
-	}
+    switch(this.direction)
+    {
+            case DirectionEnum.UP:
+            this.body[0].y--;
+        break;
+            
+            case DirectionEnum.LEFT:
+            this.body[0].x--;
+        break;
+            
+            case DirectionEnum.DOWN:
+            this.body[0].y++;
+        break;
+            
+            case DirectionEnum.RIGHT:
+            this.body[0].x++;
+        break;
+    }
+    if(this.body[0].x==width) this.body[0].x-=width;
+    if(this.body[0].y==height) this.body[0].y-=height;
+    if(this.body[0].x==-1) this.body[0].x+=width;
+    if(this.body[0].y==-1) this.body[0].y+=height;
+    
+    this.length=this.body.length;
 };
 
 
@@ -235,4 +238,4 @@ function vector2(x,y)
 
 
 
-setInterval(update,1000);
+setInterval(update,150);
