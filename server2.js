@@ -97,6 +97,38 @@ var players=[];
 
 var mainfield=createField();
 
+var food=setFood();
+
+function setFood()//Функция спавна еды
+{
+    
+    /*while(!checkFoodPosition(new vector2(posX,posY)))
+    {
+       var posX=Math.floor(Math.random()*(width-1)); 
+       var posY=Math.floor(Math.random()*(height-1));
+       
+    }*/
+     var posX=Math.floor(Math.random()*(width-1)); 
+       var posY=Math.floor(Math.random()*(height-1));
+    var foodpos=new vector2(posX,posY); 
+    return foodpos;
+    
+}
+
+function checkFoodPosition(pos) //Функция проверки пересечения позиции и змеек  
+{
+    for(var i=0;i<players.length;i++)
+    {
+        for(var j=0;j<players[i].snail.body.length;j++)
+        {
+            if(pos.x == players[i].snail.body[j].x && pos.y == players[i].snail.body[j].y)
+            {
+                return false;
+            }
+        }
+    }
+    return true;
+}
 //setInterval(changefields,500);
 
 function checkNicks(data)
@@ -162,6 +194,14 @@ function update()
         players[i].snail.move();
         //players[i].snail.setNextPosition();
     }
+    
+    if(!checkFoodPosition(food))
+    {
+        var newBlock=players[0].snail.posforfood;
+        players[0].snail.body.push(newBlock);
+        food=setFood();
+        console.log("DLUNA!!!: "+players[0].snail.length);
+    }
     sendSnail();
 }
 
@@ -169,7 +209,7 @@ function sendSnail()
 {
     if(players.length>0)
     {
-        io.sockets.emit('test',players[0].snail.body);
+        io.sockets.emit('test',{snail:players[0].snail.body, food:food});
     }
 }
 
@@ -188,7 +228,7 @@ function Snake(x0,y0,x1,y1,x2,y2)
     this.body.push(new vector2(x0,y0));
     this.body.push(new vector2(x1,y1));
     this.body.push(new vector2(x2,y2));
-    
+    this.posforfood=this.body[this.length-1];
     
 }
 
@@ -197,6 +237,10 @@ Snake.prototype.move = function() {
     
     for(var i=this.length-1;i>0;i--)
     {
+        if(i==this.length-1)
+        {
+            this.posforfood=this.body[i];
+        }
         this.body[i].x=this.body[i-1].x;
         this.body[i].y=this.body[i-1].y;
     }

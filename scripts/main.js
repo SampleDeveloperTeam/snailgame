@@ -166,6 +166,13 @@ function render()
 	 			$ctx.strokeStyle="#111";
 	 			$ctx.strokeRect(i*cell,j*cell,cell,cell);
 	 			break;
+                    
+                case 3:
+	 			$ctx.fillStyle='#0000ff';
+	 			$ctx.fillRect(i*cell,j*cell,cell,cell);
+	 			$ctx.strokeStyle="#111";
+	 			$ctx.strokeRect(i*cell,j*cell,cell,cell);
+	 			break;
 	 		}
 	 	}
  	}
@@ -213,15 +220,16 @@ function render()
      
      socket.on('test',function(data){
          reFillField();
-        for(var i=0;i<data.length;i++)
+        for(var i=0;i<data.snail.length;i++)
         {
             if(i==0)
                {
-                field[data[i].x][data[i].y]=1;
+                field[data.snail[i].x][data.snail[i].y]=1;
                }
                else
-            field[data[i].x][data[i].y]=2;
+            field[data.snail[i].x][data.snail[i].y]=2;
         }
+        field[data.food.x][data.food.y]=3;
          
      });
  }
